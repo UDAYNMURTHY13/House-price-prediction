@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+</head>
+<body>
+    <h1>Predict House Price</h1>
+    <form action="/predict" method="post">
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+            {% for loc in locations %}
+                <option value="{{ loc }}">{{ loc }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="size">Size:</label>
+        <select id="size" name="size" required>
+            {% for sz in sizes %}
+                <option value="{{ sz }}">{{ sz }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="total_sqft">Total Square Feet:</label>
+        <input type="number" id="total_sqft" name="total_sqft" step="any" required><br>
+
+        <label for="bath">Number of Bathrooms:</label>
+        <select id="bath" name="bath" required>
+            {% for bth in num_bathrooms %}
+                <option value="{{ bth }}">{{ bth }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="balcony">Number of Balconies:</label>
+        <select id="balcony" name="balcony" required>
+            {% for bnc in num_balconies %}
+                <option value="{{ bnc }}">{{ bnc }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
